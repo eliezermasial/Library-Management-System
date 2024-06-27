@@ -1,29 +1,21 @@
 <?php
+
 declare(strict_types = 1);
 
-class Livre {
+abstract class livre {
+    public function __construct(public string $title, public float $year)
+    {}
 
-    public const STATUS_AVAILABLE = 'valide';
-    public const STATUS_BORROWED = 'emprunter';
-
-    public function __construct(public string $title, public string $author, public float $year, $status= self::STATUS_AVAILABLE)
-    { }
-
-    public function getTitle(): string {
+    public function getTitle($title): string {
         return $this->title;
     }
 
-    public function getAuthor(): string {
-        return $this->author;
-    }
-
-    public function getYear(): string {
+    public function getyear($year): float {
         return $this->year;
     }
-    
-}
 
-$livres = new Livre ("calcul ","eliezer",2021);
-var_dump($livres);
+    abstract public function displayBook(): void;
+
+}
 
 ?>
